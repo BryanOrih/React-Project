@@ -1,0 +1,49 @@
+
+#imageContainer{
+  display: grid;
+  grid-template-columns: 40vw 40vw;
+  gap: 20vw;
+  position: fixed;
+}
+#maid{
+  justify-self: flex-end;
+  align-self: flex-end;
+  margin-right: -6em;
+  margin-top: 14.3em;
+}
+#maidContainer{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  display: grid;
+}
+.homepageLogo{
+  position: absolute;
+  top: 3vw;
+  width: 100%;
+  display: flex;
+  align-items: center; /** Y-axis align **/
+  justify-content: center; /** X-axis align **/
+}
+.homepageLogo > *{
+  width: 20vw;
+}
+
+/*NOTE - This is for screen manipulation */
+@media only screen and (max-width: 1700px){
+  #maid{
+    margin-right: -18em;
+  }
+  .homepageLogo > *{
+    width: 25vw;
+  }
+}
+@media only screen and (max-width: 1200px){
+  #maidContainer{
+    display: none;
+  }
+  .homepageLogo > *{
+    width: 30vw;
+  }
+  
+}
