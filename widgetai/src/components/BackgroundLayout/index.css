@@ -1,10 +1,13 @@
-.vines{
-    height: 50vw;
-  }
-  img{
-    max-width: 100%;
-    max-height: 100%;
-  }
-  #rightVine{
-    justify-self: end;
-  }
+img{
+  max-width: 100%;
+  max-height: 100%;
+}
+#rightVine{
+  justify-self: end;
+}
+#imageContainer{
+  display: grid;
+  grid-template-columns: 40vw 40vw;
+  gap: 20vw;
+  position: absolute;
+}

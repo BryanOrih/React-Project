@@ -7,9 +7,17 @@ const MainContextProvider = (props) => {
     const [logo, setLogo] = useState(
         <img src={require("../images/logo.png")} className='logo'/>
         )
+    const [selectedImage, setSelectedImage] = useState("");
 
+
+    const object = {
+      logo,
+      setLogo,
+      selectedImage, 
+      setSelectedImage
+    }
   return (
-    <MainContext.Provider value={{logo}}>
+    <MainContext.Provider value={object}>
         {props.children}
     </MainContext.Provider>
   )
