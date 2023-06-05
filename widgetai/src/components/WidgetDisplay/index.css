@@ -62,7 +62,6 @@
 }
 
 
-
 /*SECTION - Header elements (img, entry text, and header color)*/
 #chat-header {
     padding: 10px;
@@ -104,15 +103,16 @@
     grid-template-rows: 12% 88%;
     grid-template-columns: 1fr;
     padding: 0; 
+    transition: all 300ms ease 0s;
 }
 #chat-body {
     height: 100%;
-    overflow-y: auto;
-    display: flex;  
+    display: grid;
+    grid-template-rows: 87% 13%;
+    overflow-x: hidden;
 }
 
 #chat-input {
-    margin-top: 100%;
     padding: 10px;
     background-color: #f2f2f2;
     border-top: 1px solid #ccc;
@@ -140,7 +140,10 @@
 }
 
 #chat-messages {
-    /* padding: 10px; */
+    height: 390px;
+    width: 100%;
+    max-height: 390px;
+    overflow-y: scroll;
 }
 
 .chat-message {
@@ -157,4 +160,33 @@
     background-color: #d3d3d3;
     padding: 5px 10px;
     border-radius: 3px;
+}
+
+/*SECTION - Chat Design  */
+.User-Text-Bubble{
+    margin-right: 10px;
+}
+.User-Text-Bubble-Div{
+    margin: 10px;
+    width: fit-content;
+    margin-left: auto;
+    padding-left: 10px;
+    position: relative;
+    display: flex;
+    justify-content: end;
+    background-color: lightblue;
+    border-radius: 10px 10px 0px 10px;
+}
+.VA-Text-Bubble{
+    margin-left: 10px;
+}
+.VA-Text-Bubble-Div{
+    margin: 10px;
+    width: fit-content;
+    position: relative;
+    display: flex;
+    margin-right: 20%;
+    justify-content: start;
+    background-color: lightblue;
+    border-radius: 10px 10px 10px 0px;
 }

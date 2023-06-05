@@ -8,7 +8,7 @@ const MainContextProvider = (props) => {
         <img src={require("../images/logo.png")} className='logo'/>
         )
     const [selectedImage, setSelectedImage] = useState("");
-
+    const [widgetColor, setWidgetColor] = useState("")
 
     const object = {
       logo,
