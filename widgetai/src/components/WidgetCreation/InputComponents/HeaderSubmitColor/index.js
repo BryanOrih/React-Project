@@ -4,9 +4,9 @@ const HeaderNdSubmitColor = () => {
   return (
   <div className='TxtNSubmitColorContainer'>
     <label htmlFor='HeaderNdSubmitColor'>
-    VA Text Bubble Color
+    Select Your User Text Bubble Color
     </label>
-    <input name="HeaderNdSubmitColor" type='text'/>                          
+    <input name="HeaderNdSubmitColor" type='Color'/>                          
   </div>
   )
 }
