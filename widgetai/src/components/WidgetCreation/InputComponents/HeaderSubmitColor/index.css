@@ -1,0 +1,19 @@
+input[type="color"] {
+	-webkit-appearance: none;
+	border: none;
+	width: 32px;
+	height: 32px;
+    background-color: transparent;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+	padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+	border: none;
+}
+.TxtNSubmitColorContainer >div{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+}

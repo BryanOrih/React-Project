@@ -5,6 +5,7 @@
   justify-self: end;
 }
 #imageContainer{
+  pointer-events: none;
   width: 100vw;
   display: grid;
   grid-template-columns: 1fr 1fr;
