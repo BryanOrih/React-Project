@@ -153,6 +153,9 @@
     /* background-color:    ; */
     /*FIXME - This is the Widget Bg Color  */
 }
+.VA-Text-Bubble, .User-Text-Bubble{
+    font-size: .8em;
+}
 
 .chat-message {
     margin-bottom: 10px;

@@ -3,6 +3,7 @@ import axios from 'axios'
 import openai, {Configuration, OpenAIApi} from "openai"
 import {MainContext} from '../../context/MainContext'
 import './index.css'
+import {Link} from 'react-router-dom'
 import ImageInput from './InputComponents/ImageInput'
 import InputAPIKey from './InputComponents/InputAPIKey'
 import WidgetBgColor from './InputComponents/WidgetBgColor'
@@ -86,11 +87,11 @@ const WidgetCreation = () => {
         <PfpOutlineColor/>
         <FooterColor/>
         <BotParameters/>
-        <OptionalInputs/>
+        {/* <OptionalInputs/> */}
         <WidgetDisplay/>
         </div>
       </div>
-      <button>Create</button>
+      <Link to="/CreateWidget/WidgetCreated"><button id='Create-Button'>Create</button></Link>
     </>
   )
 }
