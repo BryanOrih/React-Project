@@ -20,6 +20,7 @@ const MainContextProvider = (props) => {
     const [headerColor, setHeaderColor] = useState('')
     const [pfpLineColor, setPfpLineColor] = useState('')
     const [footerColor, setFooterColor] = useState('')
+    const [VAimg, setVAImg] = useState('')
 
     const object = {
       logo,
@@ -45,7 +46,9 @@ const MainContextProvider = (props) => {
       pfpLineColor,
       setPfpLineColor,
       footerColor,
-      setFooterColor
+      setFooterColor,
+      VAimg,
+      setVAImg
     }
   return (
     <MainContext.Provider value={object}>

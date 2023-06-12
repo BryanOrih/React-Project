@@ -16,7 +16,8 @@ const WidgetDisplay = () => {
     submitBtn,
     headerColor,
     pfpLineColor,
-    footerColor
+    footerColor,
+    VAimg
   } = useContext(MainContext)
 
   // SECTION - Set up states
@@ -128,10 +129,10 @@ const WidgetDisplay = () => {
       <div id="widget-open-icon" style={{ display: toggle.ChatWidget }}>
         <div id="chat-header" style={{backgroundColor: headerColor || "#f2f2f2"}}>
           <div className="img-trim" style={{borderColor:pfpLineColor|| "rgb(201, 197, 197)"}}>
-            <img id="widget-profile" src={require('./photo.jpg')} alt="Profile" />
+            {<img id="widget-profile" src={VAimg || require('./photo.jpg')}/>}
           </div>
           <h2>{entryText || "Greetings!"}</h2>
-          {/*NOTE - This is the entry comment */}
+          {/*NOTE - This is the entry comment */} 
         </div>
         <div id="chat-body">
           <div id="chat-messages" ref={handleScroll} style={{backgroundColor:widgetBgColor || "white"}}>

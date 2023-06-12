@@ -4,9 +4,9 @@ const BotParameters = () => {
   return (
   <div className='BotParametersContainer'>
     <label htmlFor='BotParameters'>
-    Select The Parameters of you VA
+    VA possible answer parameters
     </label>
-    <textarea name="BotParameters" type='Color'/>                          
+    <textarea name="BotParameters" placeholder='Be as specific as possible' type='Color'/>                          
   </div>
   )
 }

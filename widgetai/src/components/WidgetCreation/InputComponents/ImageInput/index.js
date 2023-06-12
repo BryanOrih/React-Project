@@ -2,6 +2,7 @@ import React, {useContext, useState} from 'react'
 import "./index.css"
 import { MainContext } from '../../../../context/MainContext';
 const ImageInput = () => {
+  const {setVAImg} = useContext(MainContext)
 
   const {selectedImage, setSelectedImage} = useContext(MainContext)
 
@@ -11,6 +12,8 @@ const ImageInput = () => {
       const reader = new FileReader();
       reader.onload = () => {
         setSelectedImage(file.name);
+        // console.dir(reader.result)
+        setVAImg(reader.result)
       };
       reader.readAsDataURL(file);
     }

@@ -2,3 +2,11 @@
     grid-column: span 2;
     text-align: center;
 }
+.BotParametersContainer > label{
+    display: flex;
+    justify-content: center;
+}
+.BotParametersContainer > textarea{
+    width: 50%;
+    height: 5em;
+}
