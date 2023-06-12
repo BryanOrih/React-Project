@@ -4,9 +4,9 @@ const InputAPIKey = () => {
   return (
   <div className='InputAPIKeyContainer'>
     <label htmlFor='InputAPIKey'>
-    Input Your API KEY
+    API KEY
     </label>
-    <input name="InputAPIKey" type='text'/>                          
+    <input name="InputAPIKey" placeholder="xxxxxxxxxxxxxxxxx" type='text'/>                          
   </div>
   )
 }

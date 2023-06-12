@@ -11,4 +11,5 @@
   grid-template-columns: 1fr 1fr;
   gap: 20vw;
   position: absolute;
+  z-index: 3;
 }

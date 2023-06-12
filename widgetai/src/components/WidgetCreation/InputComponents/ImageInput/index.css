@@ -1,10 +1,9 @@
 .ImageInputContainer > *{
-    display: block;
+    /* display: block; */
 }
 .file-input-container {
-    position: relative;
-    display: inline-block;
-  }
+  text-align: start;
+}
   
   .file-input {
     opacity: 0;

@@ -15,7 +15,10 @@ const ImageInput = () => {
       reader.readAsDataURL(file);
     }
   };
-  let bruh = `${selectedImage}`.slice(0,15)
+  
+  let fileName = `${selectedImage}`.slice(0,15)
+  if(fileName.length > 14) fileName = fileName + "..."
+
   return (
     <div className='ImageInputContainer'>
       <label>VA Profile Image</label>
@@ -24,7 +27,7 @@ const ImageInput = () => {
         <label htmlFor="file-input" className="custom-label">
           <i className="fas fa-cloud-upload-alt"></i> Choose a file
         </label>
-        <span id="file-name" className="file-name">{bruh ? `${bruh}...` : "No file chosen"}</span>
+        <span id="file-name" className="file-name">{fileName ? `${fileName}` : "No file chosen"}</span>
       </div>
     </div>
   )

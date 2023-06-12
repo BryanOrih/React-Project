@@ -4,18 +4,20 @@ import openai, {Configuration, OpenAIApi} from "openai"
 import {MainContext} from '../../context/MainContext'
 import './index.css'
 import ImageInput from './InputComponents/ImageInput'
-import HeaderNdSubmitColor from './InputComponents/HeaderSubmitColor'
 import InputAPIKey from './InputComponents/InputAPIKey'
 import WidgetBgColor from './InputComponents/WidgetBgColor'
 import CollapsedWidgetColor from './InputComponents/CollapsedWidgetColor'
 import UserTextBubbleColor from './InputComponents/UserTextBubbleColor'
-import WidgetBubbleHoverColor from './InputComponents/WidgetBubbleHoverColor'
 import EntryText from './InputComponents/WelcomeText'
 import BotTextBubbleColor from './InputComponents/BotTextBubbleColor'
 import XbuttonColor from './InputComponents/XbuttonColor'
 import BotParameters from './InputComponents/BotParameters'
 import OptionalInputs from './InputComponents/OptionalInputs'
 import WidgetDisplay from '../WidgetDisplay'
+import SubmitBtnColor from './InputComponents/SubmitBtnColor'
+import HeaderColor from './InputComponents/HeaderColor'
+import PfpOutlineColor from './InputComponents/PfpLineColor'
+import FooterColor from './InputComponents/FooterColor'
 
 const WidgetCreation = () => {
       // useEffect(()=>{
@@ -71,17 +73,18 @@ const WidgetCreation = () => {
       </div>
       <div id='FormBorder'>
         <div id='FormSpacing'>
-
         <ImageInput/>
-        <HeaderNdSubmitColor/>
+        <EntryText/>
         <InputAPIKey/>
+        <HeaderColor/>
         <WidgetBgColor/>
         <CollapsedWidgetColor/>
         <UserTextBubbleColor/>
-        <WidgetBubbleHoverColor/>
-        <EntryText/>
+        <SubmitBtnColor/>
         <BotTextBubbleColor/>
         <XbuttonColor/> 
+        <PfpOutlineColor/>
+        <FooterColor/>
         <BotParameters/>
         <OptionalInputs/>
         <WidgetDisplay/>

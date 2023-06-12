@@ -1,9 +1,25 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, useContext } from 'react'
 import axios from 'axios';
 import "./index.css"
 import openai, {Configuration, OpenAIApi} from "openai"
+import { MainContext } from '../../context/MainContext';
 
 const WidgetDisplay = () => {
+  //SECTION - useContext
+  const {
+    entryText,
+    userTxTBubble,
+    AiTxtBubble,
+    widgetBgColor,
+    widgetColor,
+    xBtnColor,
+    submitBtn,
+    headerColor,
+    pfpLineColor,
+    footerColor
+  } = useContext(MainContext)
+
+  // SECTION - Set up states
   const [toggle, setToggle] = useState({
     NeutralWidget: '',
     ChatWidget: 'none',
@@ -32,6 +48,7 @@ const WidgetDisplay = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    if(input == "") return
     setChatArray([...chatArray, input]);
     setInput('');
     SetConvoCounter(convoCounter + 1)
@@ -40,18 +57,18 @@ const WidgetDisplay = () => {
     if(e === null) return
     e.scrollTop = e.scrollHeight
   }
-
+  // SECTION - Populates the chat 
   const chatDisplay = chatArray.map((text, index) =>{
     if(typeof text != "string"){
       console.log(text.response)
       return(
-        <div className='VA-Text-Bubble-Div' key={index}>
+        <div className='VA-Text-Bubble-Div' key={index} style={{backgroundColor:AiTxtBubble || "lightblue"}}>
           <p className='VA-Text-Bubble'>{text.response}</p>
         </div>
       )
     }else{
       return (
-      <div className="User-Text-Bubble-Div" key={index}>
+      <div className="User-Text-Bubble-Div" key={index} style={{backgroundColor:userTxTBubble || "lightblue"}}>
         <p className="User-Text-Bubble">{text} </p>
       </div>
       )
@@ -109,18 +126,18 @@ const WidgetDisplay = () => {
     <div id="chat-widget">
       {/*SECTION - Below This is the chat */}
       <div id="widget-open-icon" style={{ display: toggle.ChatWidget }}>
-        <div id="chat-header">
-          <div className="img-trim">
+        <div id="chat-header" style={{backgroundColor: headerColor || "#f2f2f2"}}>
+          <div className="img-trim" style={{borderColor:pfpLineColor|| "rgb(201, 197, 197)"}}>
             <img id="widget-profile" src={require('./photo.jpg')} alt="Profile" />
           </div>
-          <h2>Entry Comment</h2>
+          <h2>{entryText || "Greetings!"}</h2>
           {/*NOTE - This is the entry comment */}
         </div>
         <div id="chat-body">
-          <div id="chat-messages" ref={handleScroll}>
+          <div id="chat-messages" ref={handleScroll} style={{backgroundColor:widgetBgColor || "white"}}>
             {chatDisplay}
           </div>
-          <form id="chat-input" onSubmit={handleSubmit}>
+          <form id="chat-input" onSubmit={handleSubmit} style={{backgroundColor: footerColor||"#f2f2f2"}}>
             <input
               type="text"
               id="user-input"
@@ -128,7 +145,7 @@ const WidgetDisplay = () => {
               onChange={handleInput}
               placeholder="Type your message..."
             />
-            <button id="send-button">
+            <button id="send-button" style={{backgroundColor:submitBtn || "#4CAF50"}}>
               Send
             </button>
           </form>
@@ -136,10 +153,10 @@ const WidgetDisplay = () => {
       </div>
       {/*SECTION - Below is the Wiget bubble icons for close and open */}
       <div id="closing-widget-icon-div" style={{ display: toggle.ChatWidget }} onClick={handleToggle}>
-        <i className="fa-light fa-x closing-widget-icon widget-Icon"></i>
+        <i className="fa-light fa-x closing-widget-icon widget-Icon" style={{backgroundColor:xBtnColor || "#e93d3d"}}></i>
       </div>
-      <div id="neutral-widget-icon-div" style={{ display: toggle.NeutralWidget }} onClick={handleToggle}>
-        <i className="far neutral-widget-icon widget-Icon">&#xf086;</i>
+      <div id="neutral-widget-icon-div" style={{ display: toggle.NeutralWidget}} onClick={handleToggle}>
+        <i className="far neutral-widget-icon widget-Icon" style={{backgroundColor:widgetColor || "white"}}>&#xf086;</i>
       </div>
     </div>
   );

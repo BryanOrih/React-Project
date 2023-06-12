@@ -18,7 +18,8 @@
     box-shadow: 0 0 10px rgba(255, 255, 255, 1); /* Apply the glowing effect on hover */
 }
 .closing-widget-icon{
-    background-color: #e93d3d;
+    /* background-color: #e93d3d; */
+    /*FIXME - This is the Widget X button Color  */
     color: white;
     width: 36px;
     line-height: 32px;
@@ -65,7 +66,8 @@
 /*SECTION - Header elements (img, entry text, and header color)*/
 #chat-header {
     padding: 10px;
-    background-color: #f2f2f2;
+    /* background-color: #f2f2f2; */
+    /*FIXME - This is the header Color  */
     border-bottom: 2px solid #ccc;
     display: flex;
 }
@@ -76,7 +78,8 @@
     overflow: hidden;
     border-radius: 100%;
     bottom: 93%;
-    border: 4px solid rgb(201, 197, 197);
+    border: 4px solid;
+    /*FIXME - This is the PFP outline Color "border-color" */
 }
 #widget-profile{
     width: 120px;
@@ -95,6 +98,7 @@
 
 /*SECTION - Chat design */
 #widget-open-icon{
+    border: transparent;
     justify-self: center;
     margin-right: 260px;
     max-height: 100%;
@@ -114,7 +118,8 @@
 
 #chat-input {
     padding: 10px;
-    background-color: #f2f2f2;
+    /* background-color: #f2f2f2; */
+    /*FIXME - This is the Footer Color  */
     border-top: 1px solid #ccc;
     align-self: end;
     width: 100%;
@@ -124,7 +129,6 @@
 
 #chat-input input[type="text"] {
     width: 200px;
-    padding: 5px;
     border: 1px solid #ccc;
     border-radius: 3px;
 }
@@ -133,7 +137,8 @@
     padding: 5px 10px;
     margin-left: 10px;
     border: none;
-    background-color: #4CAF50;
+    /* background-color: #4CAF50; */
+    /*FIXME - This is the Submit Button Color  */
     color: #fff;
     border-radius: 3px;
     cursor: pointer;
@@ -144,6 +149,9 @@
     width: 100%;
     max-height: 390px;
     overflow-y: scroll;
+    
+    /* background-color:    ; */
+    /*FIXME - This is the Widget Bg Color  */
 }
 
 .chat-message {
@@ -174,7 +182,8 @@
     position: relative;
     display: flex;
     justify-content: end;
-    background-color: lightblue;
+    /* background-color: lightblue; */
+    /*FIXME - This is the User Text Bubble Bg Color  */
     border-radius: 10px 10px 0px 10px;
 }
 .VA-Text-Bubble{
@@ -187,6 +196,11 @@
     display: flex;
     margin-right: 20%;
     justify-content: start;
-    background-color: lightblue;
+    /* background-color: lightblue; */
+    /*FIXME - This is the User Text Bubble Bg Color  */
     border-radius: 10px 10px 10px 0px;
+}
+
+#chat-input > *{
+    height: 40px;
 }
