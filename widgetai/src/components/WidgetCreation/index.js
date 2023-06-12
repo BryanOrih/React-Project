@@ -87,7 +87,7 @@ const WidgetCreation = () => {
         <PfpOutlineColor/>
         <FooterColor/>
         <BotParameters/>
-        {/* <OptionalInputs/> */}
+        <OptionalInputs/>
         <WidgetDisplay/>
         </div>
       </div>
