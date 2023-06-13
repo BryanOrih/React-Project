@@ -1,27 +1,30 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import "./index.css";
 
 const OptionalInputs = () => {
   const [input, setInput] = useState({});
   const [populateArray, setPopulateArray] = useState([0]);
-
+  // const [index, setIndex] = useState([0])
+  // useEffect(()=>{
+  //   // console.log( populateArray)
+  // }, [populateArray])
   const handleInput = (e) => {
+    console.log({ ...input, [`${e.target.name}`]: e.target.value });
     setInput({ ...input, [`${e.target.name}`]: e.target.value });
   };
 
-  const handleAdd = (target) => {
-    setPopulateArray([...populateArray, target]);
+  const handleAdd = (target, index) => {
+    setPopulateArray([...populateArray, index + 1]);
   };
 
-  const handleMinus = (index) => {
-    let subArray = [...populateArray];
-    subArray.splice(index, 1);
-    setPopulateArray([...subArray]);
+  const handleMinus = (e) => {
+    e.target.parentElement.parentElement.style.display = "none"
   };
-
+  // console.log(input)
   const populate = populateArray.map((value, index) => {
     let random = Math.ceil(Math.random() * 100000000);
     let name = `OptionalInputs${random}`;
+    if(value === 0) setPopulateArray([name])
     return (
       <div className='OptionInputContainer' key={value + index}>
         <div className='OptionInputDivDesign'>
@@ -50,8 +53,8 @@ const OptionalInputs = () => {
               <option value="Email">Email</option>
             </select>
           </div>
-          <i className="fa-solid fa-square-plus addBtn" onClick={() => { setPopulateArray([...populateArray, name]) }}></i>
-          <i className="fa-solid fa-square-minus minusBtn" onClick={() => { handleMinus(index) }}></i>
+          <i className="fa-solid fa-square-plus addBtn" onClick={() => { handleAdd(name, index)}}></i>
+          <i className="fa-solid fa-square-minus minusBtn" onClick={handleMinus}></i>
         </div>
       </div>
     );
