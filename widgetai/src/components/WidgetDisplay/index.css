@@ -42,15 +42,6 @@
     padding-top: 20px;
 }
 
-
-#widget-open-icon{
-    position: relative; /*FIXME - FIX THIS LATER TO MAKE POSITION IN THE RIGHT BOTTOM CORNER */
-    width: 320px;
-    border: 1px solid #ccc;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
 #chat-widget {
     margin-left: auto;
     margin-right: auto;
@@ -59,7 +50,6 @@
     grid-template-rows: 6fr 1fr;
     grid-template-columns: 1fr;
     width: 100%;
-    height: 95%;
 }
 
 
@@ -70,23 +60,30 @@
     /*FIXME - This is the header Color  */
     border-bottom: 2px solid #ccc;
     display: flex;
+    border-radius: 8px 8px 0px 0px;
 }
 .img-trim{
     position: absolute;
-    max-height: 50px;
-    max-width: 50px;
+    width: 50px;
+    height: 50px;
     overflow: hidden;
     border-radius: 100%;
     bottom: 93%;
     border: 4px solid;
+    background-color: white;
     /*FIXME - This is the PFP outline Color "border-color" */
 }
 #widget-profile{
-    width: 120px;
-    height: 60px;
-    padding: 0;
-    margin-left: -30px;
-    /* margin-top: 0px; */
+    /* height: 100%;
+    width: fit-content; */
+    /*FIXME - FIX the values in the top to fit the new profile PIC */
+    position: absolute;
+    top: -9999px;
+    bottom: -9999px;
+    left: -9999px;
+    right: -9999px;
+    margin: auto;
+
 }
 #chat-header h2 {
     margin: 0;
@@ -108,6 +105,11 @@
     grid-template-columns: 1fr;
     padding: 0; 
     transition: all 300ms ease 0s;
+    position: relative; /*FIXME - FIX THIS LATER TO MAKE POSITION IN THE RIGHT BOTTOM CORNER */
+    width: 320px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 20px;
 }
 #chat-body {
     height: 100%;
@@ -117,7 +119,7 @@
 }
 
 #chat-input {
-    padding: 10px;
+    padding: 10px 0px;
     /* background-color: #f2f2f2; */
     /*FIXME - This is the Footer Color  */
     border-top: 1px solid #ccc;
@@ -125,6 +127,9 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 50px;
+    border-radius: 0px 0px 8px 8px;
 }
 
 #chat-input input[type="text"] {
@@ -176,10 +181,15 @@
 /*SECTION - Chat Design  */
 .User-Text-Bubble{
     margin-right: 10px;
+    /*  */
+    animation: .2s ease 0.2s 1 normal forwards running innerBubbleGrow;
+    transform-origin: right bottom;
+    transform: scale(0);
 }
 .User-Text-Bubble-Div{
     margin: 10px;
     width: fit-content;
+    max-width: 75%;
     margin-left: auto;
     padding-left: 10px;
     position: relative;
@@ -188,13 +198,23 @@
     /* background-color: lightblue; */
     /*FIXME - This is the User Text Bubble Bg Color  */
     border-radius: 10px 10px 0px 10px;
+    animation: 0.2s ease 0.2s 1 normal forwards running innerBubbleGrow;
+    transform-origin: right bottom;
+    transform: scale(0);
+    text-align: start;
 }
 .VA-Text-Bubble{
     margin-left: 10px;
+    margin-right: 10px;
+    text-align: start;
+    animation: 0.2s ease 0.2s 1 normal forwards running innerBubbleGrow;
+    transform-origin: right bottom;
+    transform: scale(0);
 }
 .VA-Text-Bubble-Div{
     margin: 10px;
     width: fit-content;
+    max-width: 75%;
     position: relative;
     display: flex;
     margin-right: 20%;
@@ -202,8 +222,22 @@
     /* background-color: lightblue; */
     /*FIXME - This is the User Text Bubble Bg Color  */
     border-radius: 10px 10px 10px 0px;
+    animation: 0.2s ease 0.2s 1 normal forwards running innerBubbleGrow;
+    transform-origin: right bottom;
+    transform: scale(0);
 }
 
 #chat-input > *{
     height: 40px;
+}
+@keyframes innerBubbleGrow{
+    0%{
+        transform: scale(0.1);
+    }
+    50%{
+        transform: scale(1.02);
+    }
+    100%{
+        transform: scale(1.0);
+    }
 }

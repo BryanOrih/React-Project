@@ -1,4 +1,4 @@
-import React, {useEffect, useContext} from 'react'
+import React, {useEffect, useContext, useState} from 'react'
 import axios from 'axios'
 import openai, {Configuration, OpenAIApi} from "openai"
 import {MainContext} from '../../context/MainContext'
@@ -21,52 +21,15 @@ import PfpOutlineColor from './InputComponents/PfpLineColor'
 import FooterColor from './InputComponents/FooterColor'
 
 const WidgetCreation = () => {
-      // useEffect(()=>{
-      //   async function queryChatbot(prompt, userParams = '') {
-      //     const url = 'https://api.openai.com/v1/chat/completions';
-      //     const headers = {
-      //       'Content-Type': 'application/json',
-      //       'Authorization': `Bearer ${process.env.REACT_APP_API_KEY}`
-      //     };
-        
-      //     const systemMessage = { role: 'system', content: 'You are a helpful assistant.' };
-      //     const userMessage = { role: 'user', content: prompt };
-      //     const messages = [systemMessage, userMessage];
-        
-      //     if (userParams) {
-      //       const paramMessage = { role: 'user', content: userParams };
-      //       messages.push(paramMessage);
-      //     }
-        
-      //     const data = {
-      //       model: 'gpt-3.5-turbo',
-      //       messages
-      //     };
-        
-      //     try {
-      //       const response = await axios.post(url, data, { headers });
-      //       const chatResult = response.data.choices[0].message.content;
-      //       return chatResult;
-      //     } catch (error) {
-      //       console.error('Error:', error.response.data);
-      //       return null;
-      //     }
-      //   }
-        
-      //   // Example usage
-      //   const prompt = 'What are insects?';
-      //   const userParams = 'Only answer business-related questions.';
-        
-      //   queryChatbot(prompt, userParams)
-      //     .then(response => {
-      //       console.log(response);
-      //     })
-      //     .catch(error => {
-      //       console.error('Error:', error);
-      //     });
-      // }, [])
+  const {logo, VAImg} = useContext(MainContext);
+  const [display, setDisplay] = useState("block")
+  useEffect(()=>{
 
-    const {logo} = useContext(MainContext);
+  }, [VAImg])
+  
+  const handleClose = () =>{
+    setDisplay('none')
+  }
   return (
     <>
       <div className='homepageLogo'>
@@ -89,6 +52,29 @@ const WidgetCreation = () => {
         <BotParameters/>
         <OptionalInputs/>
         <WidgetDisplay/>
+        </div>
+      </div>
+      <div id='ConfirmImgContainerBg' style={{display: display}}>
+        <div id='ConfirmImgContainer'>
+            <div id='ImgHeaderContainer'>
+              <p>Edit Photo</p>  
+              <i className="fa-light fa-x" id='close-img-edit-btn' onClick={handleClose}></i>
+            </div> 
+            <canvas id='ImgCanvas'></canvas>
+            <div>
+              <button>Crops</button>
+            </div>
+            <div id='ImgRotationBtn'>
+              <i>Twist right</i>
+              <i>Twist left</i>
+            </div>
+            <div id='AdjustImgCtrl'>
+              <div>Zoom</div>
+              <div>Straighten</div>
+            </div>
+            <div id='ImgFooterContainer'>
+              <button>Save Photo</button>
+            </div>
         </div>
       </div>
       <Link to="/CreateWidget/WidgetCreated"><button id='Create-Button'>Create</button></Link>

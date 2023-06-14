@@ -17,7 +17,8 @@ const WidgetDisplay = () => {
     headerColor,
     pfpLineColor,
     footerColor,
-    VAimg
+    VAimg,
+    imageDimensions
   } = useContext(MainContext)
 
   // SECTION - Set up states
@@ -117,6 +118,7 @@ const WidgetDisplay = () => {
   //   queryChatbot(prompt, userParams)
   //     .then(response => {
   //       setChatArray([...chatArray, {response}]);
+  //       // console.log(response)
   //     })
   //     .catch(error => {
   //       console.error('Error:', error);
@@ -129,7 +131,7 @@ const WidgetDisplay = () => {
       <div id="widget-open-icon" style={{ display: toggle.ChatWidget }}>
         <div id="chat-header" style={{backgroundColor: headerColor || "#f2f2f2"}}>
           <div className="img-trim" style={{borderColor:pfpLineColor|| "rgb(201, 197, 197)"}}>
-            {<img id="widget-profile" src={VAimg || require('./photo.jpg')}/>}
+            {<img id="widget-profile" src={VAimg || require('./photo.jpg')} style={{height: imageDimensions.height, width: imageDimensions.width}}/>}
           </div>
           <h2>{entryText || "Greetings!"}</h2>
           {/*NOTE - This is the entry comment */} 

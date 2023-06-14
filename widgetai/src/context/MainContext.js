@@ -22,6 +22,11 @@ const MainContextProvider = (props) => {
     const [footerColor, setFooterColor] = useState('')
     const [VAimg, setVAImg] = useState('')
     const [APIKEY, setAPIKEY] = useState('')
+    const [imageDimensions, setImageDimensions] = useState({
+      width:"fit-content",
+      height: "100%",
+      rotation: ""
+    });
 
     const object = {
       logo,
@@ -51,7 +56,9 @@ const MainContextProvider = (props) => {
       VAimg,
       setVAImg,
       APIKEY,
-      setAPIKEY
+      setAPIKEY,
+      imageDimensions,
+      setImageDimensions
     }
   return (
     <MainContext.Provider value={object}>

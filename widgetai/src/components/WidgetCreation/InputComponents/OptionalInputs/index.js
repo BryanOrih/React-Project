@@ -2,31 +2,33 @@ import React, { useEffect, useState } from 'react';
 import "./index.css";
 
 const OptionalInputs = () => {
-  const [input, setInput] = useState({});
+  const [input, setInput] = useState({
+    OptionalInputs0: '',
+  });
+  const [selectedValue, setSelectedValue] = useState({
+    OptionalInputs0: '',
+  });
   const [populateArray, setPopulateArray] = useState([0]);
-  // const [index, setIndex] = useState([0])
-  // useEffect(()=>{
-  //   // console.log( populateArray)
-  // }, [populateArray])
-  const handleInput = (e) => {
-    console.log({ ...input, [`${e.target.name}`]: e.target.value });
-    setInput({ ...input, [`${e.target.name}`]: e.target.value });
-  };
 
-  const handleAdd = (target, index) => {
+  const handleInput = (e,name) => {
+    setInput({ ...input, [name]: e.target.value });
+  };
+  const handleSelectChange = (e, name) =>{
+    setSelectedValue({ ...selectedValue, [name]: e.target.value });
+  } 
+  const handleAdd = (name, index) => {
     setPopulateArray([...populateArray, index + 1]);
+    setInput({...input, [name.slice(0,14)+`${index+1}`]: ""})
+    setSelectedValue({...selectedValue, [name.slice(0,14)+`${index+1}`]: ""})
   };
-
   const handleMinus = (e) => {
     e.target.parentElement.parentElement.style.display = "none"
   };
-  // console.log(input)
+
   const populate = populateArray.map((value, index) => {
-    let random = Math.ceil(Math.random() * 100000000);
-    let name = `OptionalInputs${random}`;
-    if(value === 0) setPopulateArray([name])
+    let name = `OptionalInputs${index}`;
     return (
-      <div className='OptionInputContainer' key={value + index}>
+      <div className='OptionInputContainer' key={index}>
         <div className='OptionInputDivDesign'>
           <div className='PromptContainer'>
             <label htmlFor='OptionalInputs'>
@@ -36,7 +38,7 @@ const OptionalInputs = () => {
               name={name}
               type='text'
               placeholder='Ex: Full Name'
-              onChange={handleInput}
+              onChange={(e)=>{handleInput(e,name)}}
               value={input[name]}
             />
           </div>
@@ -44,7 +46,7 @@ const OptionalInputs = () => {
             <label htmlFor='OptionalInputsCat'>
               Category
             </label>
-            <select name="OptionalInputsCat" type='text'>
+            <select name="OptionalInputsCat" type='text' value={selectedValue[name]} onChange={(e) =>{handleSelectChange(e,name)}}>
               <option value="None">Select</option>
               <option value="Country">Country</option>
               <option value="Name">Name</option>

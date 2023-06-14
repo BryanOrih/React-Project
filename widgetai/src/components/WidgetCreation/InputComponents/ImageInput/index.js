@@ -1,10 +1,40 @@
-import React, {useContext, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import "./index.css"
 import { MainContext } from '../../../../context/MainContext';
-const ImageInput = () => {
-  const {setVAImg} = useContext(MainContext)
 
-  const {selectedImage, setSelectedImage} = useContext(MainContext)
+const loadImage = (setImageDimensions, imageUrl, imageDimensions) => {
+  const img = new Image();
+  img.src = imageUrl;
+
+  img.onload = () => {
+    if(img.width > img.height){
+      setImageDimensions({
+        ...imageDimensions,
+        height: "100%",
+        width: "fit-content"
+      });
+    }else{
+      setImageDimensions({
+        height: "fit-content",
+        width: "100%"
+      });
+    }
+  };
+  img.onerror = (err) => {
+    console.log("img error");
+    console.error(err);
+  };
+};
+
+const ImageInput = () => {
+  const {
+    setVAImg, 
+    VAimg,
+    selectedImage,
+    setSelectedImage,
+    imageDimensions,
+    setImageDimensions,
+  } = useContext(MainContext)
 
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
@@ -12,8 +42,8 @@ const ImageInput = () => {
       const reader = new FileReader();
       reader.onload = () => {
         setSelectedImage(file.name);
-        // console.dir(reader.result)
         setVAImg(reader.result)
+        loadImage(setImageDimensions, reader.result, imageDimensions)
       };
       reader.readAsDataURL(file);
     }
@@ -28,7 +58,7 @@ const ImageInput = () => {
       <div className="file-input-container">
         <input type="file" id="file-input" onChange={handleImageUpload} className="file-input" accept="image/png, image/jpeg"/>
         <label htmlFor="file-input" className="custom-label">
-          <i className="fas fa-cloud-upload-alt"></i> Choose a file
+          <i className="fas fa-cloud-upload-alt"></i> Upload file
         </label>
         <span id="file-name" className="file-name">{fileName ? `${fileName}` : "No file chosen"}</span>
       </div>
