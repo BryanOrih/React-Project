@@ -1,4 +1,4 @@
-import React, {useEffect, useContext, useState} from 'react'
+import React, {useEffect, useContext, useState, useRef} from 'react'
 import axios from 'axios'
 import openai, {Configuration, OpenAIApi} from "openai"
 import {MainContext} from '../../context/MainContext'
@@ -19,16 +19,22 @@ import SubmitBtnColor from './InputComponents/SubmitBtnColor'
 import HeaderColor from './InputComponents/HeaderColor'
 import PfpOutlineColor from './InputComponents/PfpLineColor'
 import FooterColor from './InputComponents/FooterColor'
+import Canvas from './ComponentFunctionality/Canvas'
+
 
 const WidgetCreation = () => {
-  const {logo, VAImg} = useContext(MainContext);
-  const [display, setDisplay] = useState("block")
-  useEffect(()=>{
+  const {
+    logo,
+    VAImg,
+    imgEditDiv,
+    setImgEditDiv
+  } = useContext(MainContext);
+  // useEffect(()=>{
 
-  }, [VAImg])
+  // }, [VAImg])
   
   const handleClose = () =>{
-    setDisplay('none')
+    setImgEditDiv('none')
   }
   return (
     <>
@@ -54,23 +60,29 @@ const WidgetCreation = () => {
         <WidgetDisplay/>
         </div>
       </div>
-      <div id='ConfirmImgContainerBg' style={{display: display}}>
+      <div id='ConfirmImgContainerBg' style={{display: imgEditDiv}}>
         <div id='ConfirmImgContainer'>
             <div id='ImgHeaderContainer'>
               <p>Edit Photo</p>  
-              <i className="fa-light fa-x" id='close-img-edit-btn' onClick={handleClose}></i>
+              <i className="fa-regular fa-x" id='close-img-edit-btn' onClick={handleClose}></i>
             </div> 
-            <canvas id='ImgCanvas'></canvas>
-            <div>
-              <button>Crops</button>
+            <Canvas/>
+            <div id='ImageEditOptions'>
+              <button className='active'><i className="fa-solid fa-crop-simple"></i>Crop</button>
             </div>
             <div id='ImgRotationBtn'>
-              <i>Twist right</i>
-              <i>Twist left</i>
+              <button><i className="fa-solid fa-arrow-rotate-right"></i></button>
+              <button><i className="fa-solid fa-arrow-rotate-left"></i></button>
             </div>
             <div id='AdjustImgCtrl'>
-              <div>Zoom</div>
-              <div>Straighten</div>
+              <div>
+                <p>Zoom</p>
+                <span><i className="fa-solid fa-minus"></i><input type='range'/><i className="fa-solid fa-plus"></i></span>
+              </div>
+              <div>
+                <p>Straighten</p>
+                <span><i className="fa-solid fa-minus"></i><input type='range'/><i className="fa-solid fa-plus"></i></span>
+              </div>
             </div>
             <div id='ImgFooterContainer'>
               <button>Save Photo</button>

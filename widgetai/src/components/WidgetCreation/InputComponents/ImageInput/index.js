@@ -2,7 +2,7 @@ import React, {useContext, useEffect, useState} from 'react'
 import "./index.css"
 import { MainContext } from '../../../../context/MainContext';
 
-const loadImage = (setImageDimensions, imageUrl, imageDimensions) => {
+const loadImage = (setImageDimensions, imageUrl, imageDimensions, setImgEditDiv) => {
   const img = new Image();
   img.src = imageUrl;
 
@@ -13,11 +13,13 @@ const loadImage = (setImageDimensions, imageUrl, imageDimensions) => {
         height: "100%",
         width: "fit-content"
       });
+      setImgEditDiv("block")
     }else{
       setImageDimensions({
         height: "fit-content",
         width: "100%"
       });
+      setImgEditDiv("block")
     }
   };
   img.onerror = (err) => {
@@ -34,6 +36,7 @@ const ImageInput = () => {
     setSelectedImage,
     imageDimensions,
     setImageDimensions,
+    setImgEditDiv
   } = useContext(MainContext)
 
   const handleImageUpload = (e) => {
@@ -43,7 +46,7 @@ const ImageInput = () => {
       reader.onload = () => {
         setSelectedImage(file.name);
         setVAImg(reader.result)
-        loadImage(setImageDimensions, reader.result, imageDimensions)
+        loadImage(setImageDimensions, reader.result, imageDimensions, setImgEditDiv)
       };
       reader.readAsDataURL(file);
     }
