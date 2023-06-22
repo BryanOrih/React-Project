@@ -19,6 +19,7 @@ const loadImage = (setImageDimensions, imageUrl, imageDimensions, setImgEditDiv)
         height: "fit-content",
         width: "100%"
       });
+      alert("Photo positions in still in development, please close the tab. The inputed file will be auto-centered")
       setImgEditDiv("block")
     }
   };
