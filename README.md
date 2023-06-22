@@ -1,56 +1,70 @@
-# Widget Assistant Generator
+# Getting Started with Create React App
 
-## Overview
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-The Widget Assistant Generator is a powerful web application that allows users to create personalized assistant widgets for their websites. This README file provides a comprehensive guide on how to use the Widget Assistant Generator effectively.
+## Available Scripts
 
-## Features
+In the project directory, you can run:
 
-- Customizable Responses: The Widget Assistant Generator allows users to define specific parameters for the assistant's responses. Users can input different phrases, questions, or keywords, and the assistant will provide appropriate responses based on these parameters.
+### `npm start`
 
-- Color Scheme Personalization: Users can customize the appearance of the assistant widget by choosing their preferred color scheme. This ensures that the widget seamlessly integrates with the existing design of their website.
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-- Easy Integration: The Widget Assistant Generator provides a simple integration process. Users can generate a code snippet that can be easily embedded into their website, allowing the assistant widget to be quickly deployed.
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-## Usage
+### `npm test`
 
-To use the Widget Assistant Generator effectively, follow the steps outlined below:
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-1. Accessing the Application: Visit our website and navigate to the Widget Assistant Generator. You will be presented with an intuitive user interface that allows you to customize your assistant widget.
+### `npm run build`
 
-2. Defining Parameters: Specify the parameters for the assistant's responses. This can include phrases, questions, or keywords that the assistant will respond to. You can define multiple parameters to ensure a comprehensive range of responses.
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-3. Personalizing the Color Scheme: Choose the color scheme that matches your website's design. The Widget Assistant Generator provides a palette of pre-defined colors, or you can input custom color codes for more precise personalization.
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-4. Previewing the Assistant Widget: Preview the assistant widget to see how it will appear on your website. You can make further adjustments to the parameters or color scheme as needed.
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-5. Generating the Code Snippet: Once you are satisfied with the assistant widget's customization, click on the "Generate Code" button. A code snippet will be generated, which you can copy and paste into your website's HTML code.
+### `npm run eject`
 
-6. Embedding the Assistant Widget: Open your website's HTML file and locate the section where you want the assistant widget to appear. Paste the code snippet into this section, and save the file.
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-7. Testing the Assistant Widget: Load your website in a browser and navigate to the page where you embedded the assistant widget. Test the assistant by interacting with it using the defined parameters. Ensure that the responses are appropriate and the color scheme is visually appealing.
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-## Example
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-Here is an example of how the Widget Assistant Generator can be used:
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-1. Access the Widget Assistant Generator on our website.
+## Learn More
 
-2. Define the following parameters for the assistant's responses:
-   - Phrase: "What are your office hours?"
-   - Question: "How can I contact support?"
-   - Keyword: "pricing"
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-3. Personalize the color scheme by selecting a combination of blue and white.
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-4. Preview the assistant widget and make any necessary adjustments.
+### Code Splitting
 
-5. Generate the code snippet and copy it.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-6. Open your website's HTML file and paste the code snippet into the desired section.
+### Analyzing the Bundle Size
 
-7. Test the assistant widget by loading your website and interacting with it using the defined parameters.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-## Conclusion
+### Making a Progressive Web App
 
-The Widget Assistant Generator empowers website owners to create personalized assistant widgets tailored to their specific requirements. By defining response parameters and customizing the color scheme, users can seamlessly integrate an assistant into their websites. The straightforward integration process and intuitive user interface make it easy for anyone to utilize this powerful tool. Enhance your website's functionality and user experience with the Widget Assistant Generator today!
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
